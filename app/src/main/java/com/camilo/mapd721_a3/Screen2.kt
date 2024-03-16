@@ -13,12 +13,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.navigation.NavController
 
 
 @Composable
-fun Screen2() {
+fun Screen2(navController: NavController) {
     var visible by remember { mutableStateOf(false) }
-
+    Button(onClick = { navController.navigate("main") }) {
+        Text("Go back")
+    }
     Column {
         Button(onClick = { visible = !visible }) {
             Text(if (visible) "Hide" else "Show")

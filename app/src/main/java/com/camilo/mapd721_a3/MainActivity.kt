@@ -53,10 +53,10 @@ fun AppNavigation() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "main") {
         composable("main") { MainScreen(navController) }
-        composable("screen1") { Screen1() }
-        composable("screen2") { Screen2() }
-        composable("screen3") { Screen3() }
-        composable("screen4") { Screen4() }
+        composable("screen1") { Screen1(navController) }
+        composable("screen2") { Screen2(navController) }
+        composable("screen3") { Screen3(navController) }
+        //composable("screen4") { Screen4() }
     }
 }
 

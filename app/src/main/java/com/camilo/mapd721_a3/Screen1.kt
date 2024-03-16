@@ -16,11 +16,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.navigation.NavController
 
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun Screen1() {
+fun Screen1(navController: NavController) {
     var count by remember { mutableStateOf(0) }
 
     Button(onClick = { count++ }) {
@@ -40,5 +41,9 @@ fun Screen1() {
         }, label = ""
     ) { targetCount ->
         Text(text = "Count: $targetCount")
+    }
+
+    Button(onClick = { navController.navigate("main") }) {
+        Text("Go back")
     }
 }
