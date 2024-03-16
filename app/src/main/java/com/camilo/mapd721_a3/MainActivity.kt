@@ -56,6 +56,7 @@ fun AppNavigation() {
         composable("screen1") { Screen1(navController) }
         composable("screen2") { Screen2(navController) }
         composable("screen3") { Screen3(navController) }
+        composable("screen4") { Screen4(navController) }
         //composable("screen4") { Screen4() }
     }
 }
