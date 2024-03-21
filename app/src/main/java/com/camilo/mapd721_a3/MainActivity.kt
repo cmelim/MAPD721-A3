@@ -40,16 +40,16 @@ fun MainScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(onClick = { navController.navigate("screen1") }, modifier = Modifier.padding(8.dp)) {
-            Text("Go to Screen 1")
+            Text("Screen 1 Animated Content")
         }
         Button(onClick = { navController.navigate("screen2") }, modifier = Modifier.padding(8.dp)) {
-            Text("Go to Screen 2")
+            Text("Screen 2 Value Based Animation:")
         }
         Button(onClick = { navController.navigate("screen3") }, modifier = Modifier.padding(8.dp)) {
-            Text("Go to Screen 3")
+            Text("Screen 3 Value Based Animation 2")
         }
         Button(onClick = { navController.navigate("screen4") }, modifier = Modifier.padding(8.dp)) {
-            Text("Go to Screen 4")
+            Text("Screen 4 Gesture Based Animation")
         }
     }
 }
