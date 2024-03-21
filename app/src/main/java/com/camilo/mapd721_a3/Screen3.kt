@@ -6,12 +6,14 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -20,6 +22,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
@@ -45,11 +49,45 @@ fun Screen3(navController: NavController) {
             .background(if (color < 0.5f) Color.Red else Color.Blue))
 
         Spacer(modifier = Modifier.weight(1f))
+        CatAnimation()
+
+        Spacer(modifier = Modifier.weight(1f))
 
         Button(onClick = { navController.navigate("main") }) {
             Text("Go back")
         }
     }
 
+}
+
+@Composable
+fun CatAnimation() {
+    val infiniteTransition = rememberInfiniteTransition(label = "")
+    val offsetX by infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 300f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(1000, easing = LinearEasing),
+            repeatMode = RepeatMode.Reverse
+        ), label = ""
+    )
+
+    Box(
+        modifier = Modifier
+            .size(200.dp)
+            .offset(x = offsetX.dp)
+    ) {
+        CatImage(modifier = Modifier.fillMaxSize())
+    }
+}
+
+@Composable
+fun CatImage(modifier: Modifier = Modifier) {
+    val catPainter: Painter = painterResource(id = R.drawable.cat)
+    Image(
+        painter = catPainter,
+        contentDescription = "Cat",
+        modifier = modifier
+    )
 }
 
