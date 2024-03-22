@@ -53,7 +53,7 @@ fun MainScreen(navController: NavController) {
         Button(onClick = { navController.navigate("screen4") }, modifier = Modifier.padding(8.dp)) {
             Text("Screen 4 Gesture Based Animation")
         }
-
+        Spacer(modifier = Modifier.weight(5f))
         Divider()
         Text(text = "301240077", fontWeight = FontWeight.Bold)
         Text(text = "Camilo Meli", fontWeight = FontWeight.Bold)
